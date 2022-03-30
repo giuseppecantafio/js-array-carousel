@@ -22,24 +22,41 @@ const text = [
     'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam,',
 ]
 
+
+// VARIABILI ZERO GENERALI
 let currentIndex = 0;
+let currentImage = 0;
+let currentImageLaterale = 0;
 
 const listaImmagini = document.getElementsByClassName('item');
-
-const items2 = [...items];
-
 const next = document.querySelector('.next');
 const prev = document.querySelector('.prev');
 
+// INSERISCO IMMAGINI IN ITEM
+let currentItems = document.querySelectorAll(".item");
+for (let i = 0; i < items.length; i++) {
+    currentItems[i].innerHTML = `<img src="${items[currentImage]}"/>`;
+    currentImage += 1;
+}
+
+//INSERISCO LE IMMAGINE NELLA BARRA LATERALE
+let currentItems2 = document.querySelectorAll(".item-2");
+for (let i = 0; i < items.length; i++) {
+    currentItems2[i].innerHTML = `<img src="${items[currentImageLaterale]}"/>`;
+    currentImageLaterale += 1;
+}
+
+// CAROSELLO IN AVANTI
 next.addEventListener("click", function () {
     if (currentIndex < 4) {
         listaImmagini[currentIndex].classList.remove("active");
         currentIndex += 1;
         listaImmagini[currentIndex].classList.add("active");
     }
-
+    
 });
 
+//CAROSELLO ALL'INDIETRO
 prev.addEventListener('click',function() {
 
     if (currentIndex > 0) {
@@ -47,4 +64,5 @@ prev.addEventListener('click',function() {
         currentIndex -= 1;
         listaImmagini[currentIndex].classList.add("active");
     }
-})
+});
+
