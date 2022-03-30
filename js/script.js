@@ -25,28 +25,44 @@ const text = [
 
 // VARIABILI ZERO GENERALI
 let currentIndex = 0;
+
+
+// INSERISCO IMMAGINI E HTML
+const listaImmagini = document.getElementsByClassName('item');
+let currentItems = document.querySelectorAll(".item");
+let currentItems2 = document.querySelectorAll(".item-2");
+
 let currentImage = 0;
 let currentImageLaterale = 0;
 
-const listaImmagini = document.getElementsByClassName('item');
-const next = document.querySelector('.next');
-const prev = document.querySelector('.prev');
-
-// INSERISCO IMMAGINI IN ITEM
-let currentItems = document.querySelectorAll(".item");
 for (let i = 0; i < items.length; i++) {
-    currentItems[i].innerHTML = `<img src="${items[currentImage]}"/>`;
+    currentItems[i].innerHTML = `<img src="${items[currentImage]}"/> <p class="title"></p>
+    <p class="text"></p>`;
     currentImage += 1;
-}
-
-//INSERISCO LE IMMAGINE NELLA BARRA LATERALE
-let currentItems2 = document.querySelectorAll(".item-2");
+};
 for (let i = 0; i < items.length; i++) {
     currentItems2[i].innerHTML = `<img src="${items[currentImageLaterale]}"/>`;
     currentImageLaterale += 1;
-}
+};
+
+
+// INSERISCO TITOLO E TESTO
+for (let i = 0; i < title.length; i++) {
+    let currentTitle = 0;
+    let pTitle = document.querySelectorAll(".title");
+    pTitle[i].innerHTML = `${title[currentTitle]}`;
+    currentTitle += 1;
+};
+for (let i = 0; i < text.length; i++) {
+    let currentText = 0;
+    let pText = document.querySelectorAll(".text");
+    pText[i].innerHTML = `${text[currentText]}`;
+    currentText += 1;
+};
+
 
 // CAROSELLO IN AVANTI
+const next = document.querySelector('.next');
 next.addEventListener("click", function () {
     if (currentIndex < 4) {
         listaImmagini[currentIndex].classList.remove("active");
@@ -56,7 +72,9 @@ next.addEventListener("click", function () {
     
 });
 
+
 //CAROSELLO ALL'INDIETRO
+const prev = document.querySelector('.prev');
 prev.addEventListener('click',function() {
 
     if (currentIndex > 0) {
