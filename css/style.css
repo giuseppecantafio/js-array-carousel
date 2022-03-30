@@ -51,6 +51,8 @@
     height: 100%;
     object-fit: cover;
 }
+
+        /* NAV */
 .prev,
 .next {
     width: 40px;
@@ -86,5 +88,4 @@
     display: none;
 }
 
-        /* NAV */
 
