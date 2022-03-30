@@ -36,8 +36,8 @@ let currentImage = 0;
 let currentImageLaterale = 0;
 
 for (let i = 0; i < items.length; i++) {
-    currentItems[i].innerHTML = `<img src="${items[currentImage]}"/> <p class="title"></p>
-    <p class="text"></p>`;
+    currentItems[i].innerHTML = `<img src="${items[currentImage]}"/> <div class="text-container"><p class="title"></p>
+    <p class="text"></p></div>`;
     currentImage += 1;
 };
 for (let i = 0; i < items.length; i++) {
@@ -47,15 +47,18 @@ for (let i = 0; i < items.length; i++) {
 
 
 // INSERISCO TITOLO E TESTO
+
+let currentTitle = 0;
+let pTitle = document.querySelectorAll(".title");
+
+let currentText = 0;
+let pText = document.querySelectorAll(".text");
+
 for (let i = 0; i < title.length; i++) {
-    let currentTitle = 0;
-    let pTitle = document.querySelectorAll(".title");
     pTitle[i].innerHTML = `${title[currentTitle]}`;
     currentTitle += 1;
 };
 for (let i = 0; i < text.length; i++) {
-    let currentText = 0;
-    let pText = document.querySelectorAll(".text");
     pText[i].innerHTML = `${text[currentText]}`;
     currentText += 1;
 };
@@ -68,7 +71,7 @@ next.addEventListener("click", function () {
         listaImmagini[currentIndex].classList.remove("active");
         currentIndex += 1;
         listaImmagini[currentIndex].classList.add("active");
-    }
+    } 
     
 });
 
